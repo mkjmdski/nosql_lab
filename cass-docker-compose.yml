@@ -5,24 +5,21 @@ services:
       dockerfile: Dockerfile
     container_name: vscode_container_nosql_lab
     ports:
-      - 127.0.0.1:8080:8080
+      - 127.0.0.1:8081:8080
     volumes:
       - ./workspace:/home/coder/workspace
     environment:
       - DEFAULT_WORKSPACE=/home/coder/workspace
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - HUGGINGFACE_HUB_TOKEN=${HUGGINGFACE_HUB_TOKEN}
-      - AZURE_OPENAI_API_KEY=${AZURE_OPENAI_API_KEY}
 
   cassandra:
     image: cassandra:4.1
     container_name: cassandra_nosql_lab
     ports:
-      - "9042:9042"   # CQL
-      - "7000:7000"   # internode communication
-      - "7001:7001"   # TLS internode
-      - "7199:7199"   # JMX
-      - "9160:9160"   # Thrift (opcjonalnie, historycznie)
+      - "9042:9042" # CQL
+      - "7000:7000" # internode communication
+      - "7001:7001" # TLS internode
+      - "7199:7199" # JMX
+      - "9160:9160" # Thrift (opcjonalnie, historycznie)
     environment:
       - CASSANDRA_CLUSTER_NAME=TestCluster
       - CASSANDRA_DC=datacenter1

@@ -5,14 +5,11 @@ services:
       dockerfile: Dockerfile
     container_name: vscode_container_nosql_lab
     ports:
-      - 127.0.0.1:8080:8080
+      - 127.0.0.1:8081:8080
     volumes:
       - ./workspace:/home/coder/workspace
     environment:
       - DEFAULT_WORKSPACE=/home/coder/workspace
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - HUGGINGFACE_HUB_TOKEN=${HUGGINGFACE_HUB_TOKEN}
-      - AZURE_OPENAI_API_KEY=${AZURE_OPENAI_API_KEY}
 
   redis:
     image: redis:7
